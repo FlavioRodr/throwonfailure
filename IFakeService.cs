@@ -2,6 +2,8 @@ namespace framework
 {
     public interface IFakeService
     {
-        Response? Get();
+        Response GetsFaultyResponseFromApi();
+
+        Response GetsFaltyResponse();
     }
 }

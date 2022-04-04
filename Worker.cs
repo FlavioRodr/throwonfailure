@@ -15,13 +15,13 @@ namespace framework
         }
 
         [ThrowOnFailed]
-        public void method()
+        public void method1()
         {
-            Response r = null;
+            Response r;
             try
             {
-                Console.WriteLine("Get Response will get called.");
-                r = this.fakeSvc.Get();
+                Console.WriteLine("GetsFaultyResponseFromApi will get called.");
+                r = this.fakeSvc.GetsFaultyResponseFromApi();
             }
             catch (Exception ex) 
             {
@@ -30,9 +30,27 @@ namespace framework
             }
         }
 
+        [ThrowOnFailed]
+        public void method2() 
+        {
+            Response r = new Response();
+
+            try
+            {
+                Console.WriteLine("GetsFaltyResponse will get called.");
+                var intermediateResponse = this.fakeSvc.GetsFaltyResponse();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception thrown.");
+                Console.WriteLine($"Exception msg: {ex.Message}. Stacktrace: ${ex.StackTrace}");
+            }
+        }
+
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            this.method();
+            //this.method1();
+            this.method2();
             return Task.CompletedTask;
         }
 

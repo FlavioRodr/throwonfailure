@@ -144,3 +144,7 @@ _NCrunch*
 
 # Built Visual Studio Code Extensions
 *.vsix
+/.vs/framework/DesignTimeBuild
+/.vs/framework/v17
+*.v2
+*.v1
